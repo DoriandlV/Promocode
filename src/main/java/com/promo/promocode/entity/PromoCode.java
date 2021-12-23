@@ -17,10 +17,11 @@ public class PromoCode {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "PromoID", nullable = false)
     private Long promoId;
-    private int value;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    private String user;
+
+  /*  @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "users_userid")
-    private User users;
+    private User users; */
 
 }
