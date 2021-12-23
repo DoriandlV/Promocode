@@ -1,8 +1,10 @@
 package com.promo.promocode.services;
 
 import com.promo.promocode.entity.PromoCode;
+import com.promo.promocode.repository.PromoRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,12 +14,13 @@ import java.util.List;
 @Slf4j
 public class PromoCodeService {
 
-    public final List<PromoCode> promoCodes = new ArrayList<>();
+    public final List<PromoRepository> promoCodes = new ArrayList<>();
 
+    @Autowired
+    PromoRepository promoRepository;
 
-    public List<PromoCode> createPromoCode(){
+    public PromoCode savePromoCode(){
 
-        for(int i =0; i<1000; i++) {
 
             String user = RandomStringUtils.random(8, true, false);
 
@@ -25,10 +28,9 @@ public class PromoCodeService {
 
             promoCode.setUser(user);
 
-            promoCodes.add(promoCode);
-        }
+
         log.info("Inside createPromoCode of PromoCodeService ");
 
-        return promoCodes;
+        return promoRepository.save(promoCode);
     }
 }
