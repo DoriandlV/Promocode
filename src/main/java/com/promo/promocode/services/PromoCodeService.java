@@ -19,18 +19,23 @@ public class PromoCodeService {
     @Autowired
     PromoRepository promoRepository;
 
-    public PromoCode savePromoCode(){
+    public void savePromoCode(){
 
 
             String user = RandomStringUtils.random(8, true, false);
-
             PromoCode promoCode = new PromoCode();
-
             promoCode.setUser(user);
-
+            promoRepository.save(promoCode);
 
         log.info("Inside createPromoCode of PromoCodeService ");
 
-        return promoRepository.save(promoCode);
+
+    }
+
+    public void createData(){
+        for(int i=0; i<1000;i++){
+        savePromoCode();
+        }
+
     }
 }
