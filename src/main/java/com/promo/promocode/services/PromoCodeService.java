@@ -41,10 +41,9 @@ public class PromoCodeService {
 
         }
 
-    public PromoCode notAssigned(){
 
-            return promoRepository.;
-        }
+
+
     }
 
 }
