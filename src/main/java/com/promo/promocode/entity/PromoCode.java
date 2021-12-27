@@ -19,7 +19,7 @@ public class PromoCode {
     private Long promoId;
     @Column(name = "user_id")
     private String userId;
-    @Column(name="promocode")
+    @Column(name = "promocode")
     private String promoCode;
 
 }

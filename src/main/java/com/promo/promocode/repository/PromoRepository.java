@@ -7,8 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface PromoRepository extends JpaRepository<PromoCode,Long> {
+public interface PromoRepository extends JpaRepository<PromoCode, Long> {
 
     Optional<PromoCode> findByUserId(String userId);
+
     Optional<PromoCode> findFirst1ByUserIdIsNull();
 }
