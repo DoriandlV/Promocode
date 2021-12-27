@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/promo
+    url: jdbc:postgresql://localhost:5432/Promocode
     username: postgres
     password: password
     hikari:
@@ -9,4 +9,4 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto=: create
+      ddl-auto: create

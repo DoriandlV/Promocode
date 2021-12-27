@@ -7,22 +7,19 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Promo")
+@Table(name = "promo")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class PromoCode {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "PromoID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Long promoId;
-    @Column(name = "User")
-    private String user;
+    @Column(name = "user_id")
+    private String userId;
     @Column(name="promocode")
     private String promoCode;
-  /*  @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "users_userid")
-    private User users; */
 
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -23,9 +24,10 @@ public class PromoCodeService {
     public void savePromoCode(){
 
 
-            String user = RandomStringUtils.random(8, true, false);
+            String promo = RandomStringUtils.random(8, true, false);
             PromoCode promoCode = new PromoCode();
-            promoCode.setUser(user);
+            promoCode.setPromoCode(promo);
+
             promoRepository.save(promoCode);
 
         log.info("Inside createPromoCode of PromoCodeService ");
@@ -33,12 +35,34 @@ public class PromoCodeService {
 
     }
 
+    public PromoCode addPromoToUser(String userId){
+
+        log.info("Inside addPromoToUser of PromoCodeService ");
+
+        Optional<PromoCode> byUserId = promoRepository.findByUserId(userId);
+        if(byUserId.isPresent()){
+            return byUserId.get();
+        }
+
+        else{
+            Optional<PromoCode> freePromo = promoRepository.findFirst1ByUserIdIsNull();
+            if(freePromo.isPresent())
+            {
+                PromoCode promoCode = freePromo.get();
+                promoCode.setUserId(userId);
+                promoRepository.save(promoCode);
+                return promoCode;
+            }
+            else {
+                throw new IllegalStateException();
+            }
+        }
+    }
+
     public void createData(){
         for(int i=0; i<1000;i++){
-        savePromoCode();
+            savePromoCode();
             log.info("Inside createDATA of PromoCodeService ");
-            //String sqlStatementLine = String.format("insert into Promo values ('%s')", UUID.randomUUID().toString());
-
         }
 
 
