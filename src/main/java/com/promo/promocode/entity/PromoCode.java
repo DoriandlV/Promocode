@@ -19,7 +19,8 @@ public class PromoCode {
     private Long promoId;
     @Column(name = "User")
     private String user;
-
+    @Column(name="promocode")
+    private String promoCode;
   /*  @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "users_userid")
     private User users; */

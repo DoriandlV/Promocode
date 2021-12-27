@@ -20,7 +20,7 @@ public class PromoController {
     @GetMapping("/notassigned/{id}")
     public PromoCode notAssigned (@PathVariable Long id) {
         PromoCode promoCode = new PromoCode();
-        if(promoCode.getUser().isEmpty());
+        if(promoCode.getPromoCode().isEmpty());
         return promoCode;
     }
 
