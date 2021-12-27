@@ -16,8 +16,6 @@ import java.util.UUID;
 @Slf4j
 public class PromoCodeService {
 
-    public final List<PromoRepository> promoCodes = new ArrayList<>();
-
     @Autowired
     PromoRepository promoRepository;
 
