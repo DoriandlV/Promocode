@@ -17,7 +17,7 @@ public class PromoCode {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "PromoID", nullable = false)
     private Long promoId;
-
+    @Column(name = "User")
     private String user;
 
   /*  @OneToOne(cascade = CascadeType.ALL)

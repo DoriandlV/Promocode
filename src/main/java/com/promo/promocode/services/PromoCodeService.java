@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Slf4j
@@ -35,7 +36,15 @@ public class PromoCodeService {
     public void createData(){
         for(int i=0; i<1000;i++){
         savePromoCode();
+            log.info("Inside createDATA of PromoCodeService ");
+            //String sqlStatementLine = String.format("insert into Promo values ('%s')", UUID.randomUUID().toString());
+
         }
 
+    public PromoCode notAssigned(){
+
+            return promoRepository.;
+        }
     }
+
 }
